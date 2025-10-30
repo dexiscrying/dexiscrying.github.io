@@ -1,3 +1,1 @@
-# Hi,
-
-### Welcome to my blog
+# project y.o
