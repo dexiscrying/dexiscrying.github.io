@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>project y.o.</title>
+  <style>
+    /* --- vibe setup --- */
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap');
+    
+    body {
+      background-color: #000;
+      color: #00ff99;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.1rem;
+      margin: 0;
+      line-height: 1.6;
+      overflow-wrap: break-word;
+      word-break: break-all;
+      letter-spacing: 0.5px;
+      text-shadow: 0 0 4px #00ff99;
+      cursor: crosshair;
+    }
+    
+    /* --- intro block --- */
+    .intro {
+      background: linear-gradient(90deg, #001a0f, #000);
+      margin: 20px;
+      text-align: start;
+      word-break: normal;
+    }
+    
+    .social-link {
+      color: #00ccff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.15s ease, text-shadow 0.15s ease;
+    }
+    
+    .social-link:hover {
+      color: #fff;
+      text-shadow: 0 0 8px #00ffff;
+    }
+    
+    .social-link.main {
+      color: #ff00ff;
+    }
+    
+    .social-link.main:hover {
+      color: #00ffff;
+      text-shadow: 0 0 12px #ff00ff;
+    }
+    
+    /* --- yoo section --- */
+    #yoo {
+      padding: 20px;
+      color: #E5F6F0;
+      font-weight: 600;
+      font-size: 1.2rem;
+      text-shadow: 0 0 8px #00ff99;
+      user-select: none;
+    }
+    
+    /* subtle glow animation on the whole page */
+    @keyframes pulse {
+
+      0%,
+      100% {
+        text-shadow: 0 0 5px #00ff99, 0 0 10px #00ff99;
+      }
+      
+      50% {
+        text-shadow: 0 0 15px #00ff99, 0 0 30px #00ccff;
+      }
+    }
+    
+    body {
+      animation: pulse 3s infinite ease-in-out;
+    }
+  </style>
+</head>
+
+<body>
+  <p class="intro">
+    hi i'm dex. say hi back at 𝕩 –
+    <a class="social-link" href="https://x.com/iamnotdeleting" target="_blank" rel="noopener noreferrer">@iamnotdeleting</a>,
+    or at insta –
+    <a class="social-link" href="https://instagram.com/dextriedinsta" target="_blank" rel="noopener noreferrer">@dextriedinsta</a>.
+    <br><br>
+    find my website at
+    <a class="social-link main" href="https://dex.yuck.site" target="_blank" rel="noopener noreferrer">dex.yuck.site</a> —
+    oh, that's here lol. scroll for easter eggs.
+  </p>
+  
+  <div id="yoo">yoooooooooooooooooooooooo</div>
+  
+  <script>
+    const yooDiv = document.getElementById("yoo");
+    const easterEggs = [
+      { pos: 5000, text: "dex was here." },
+      { pos: 15000, text: "stop scrolling." },
+      { pos: 30000, text: "nah fr stop." },
+      { pos: 50000, text: "ok fine keep scrolling." },
+      { pos: 70000, text: "yuck." }
+    ];
+    
+    let counter = 0;
+    let nextEggIndex = 0;
+    
+    function extendYo() {
+      yooDiv.textContent += "oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo";
+      counter += 100;
+      
+      if (nextEggIndex < easterEggs.length && counter >= easterEggs[nextEggIndex].pos) {
+        yooDiv.textContent += " " + easterEggs[nextEggIndex].text + " ";
+        nextEggIndex++;
+      }
+      
+      requestAnimationFrame(extendYo);
+    }
+    
+    extendYo();
+    
+    function autoScroll() {
+      window.scrollBy(0, 0.2);
+      requestAnimationFrame(autoScroll);
+    }
+    autoScroll();
+  </script>
+</body>
+
+</html>
